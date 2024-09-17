@@ -1,0 +1,132 @@
+.airdrop-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.airdrop-container.dark {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 12px;
+}
+
+.airdrop-container.light {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: inherit;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Green color to match both themes */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+}
+
+.theme-toggle:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+.wallet-connected {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.wallet-address {
+    font-weight: bold;
+    word-break: break-all;
+    margin-bottom: 15px;
+}
+
+.address {
+    font-weight: lighter;
+    color: teal;
+}
+
+.airdrop-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.amount-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.amount-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.airdrop-button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.airdrop-button:hover {
+    background-color: #45a049;
+}
+
+.airdrop-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.cooldown-timer {
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    color: #ff5555;
+    margin-top: 10px;
+    background-color: rgba(255, 85, 85, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 85, 85, 0.3);
+}
+
+.connect-prompt {
+    text-align: center;
+    font-style: italic;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+}

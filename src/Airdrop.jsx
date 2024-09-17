@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
+import './Airdrop.css';
 
 // Create a theme context
 const ThemeContext = createContext();
@@ -26,7 +27,7 @@ export function Airdrop() {
     const [amount, setAmount] = useState('');
     const [isCooldown, setIsCooldown] = useState(false);
     const [cooldownMessage, setCooldownMessage] = useState('');
-    const [cooldownTime, setCooldownTime] = useState(null); // To store countdown timer
+    const [cooldownTime, setCooldownTime] = useState(null);
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     const FOUR_HOUR_WINDOW = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
@@ -93,9 +94,12 @@ export function Airdrop() {
     };
 
     const updateCooldownTimer = () => {
-        if (cooldownTime > 0) {
+        if (cooldownTime !== null && cooldownTime > 0) {
             setCooldownTime(prevTime => prevTime - 1000); // Decrease time by 1 second
         } else if (cooldownTime <= 0) {
+            setCooldownTime(null); // Stop the timer when cooldown period is over
+            setIsCooldown(false);  // Reset cooldown state
+            setCooldownMessage(''); // Clear cooldown message
             checkRateLimit(); // Recheck the rate limit once the timer hits 0
         }
     };
@@ -162,7 +166,7 @@ export function Airdrop() {
                             onChange={(e) => setAmount(e.target.value)}
                             placeholder="Amount in SOL"
                             className="amount-input"
-                            disabled={isCooldown} // Disable input during cooldown
+                            disabled={isCooldown}
                         />
                         <button onClick={sendAirdropToUser} className="airdrop-button" disabled={isCooldown}>
                             {isCooldown ? cooldownMessage : `Send Airdrop`}
