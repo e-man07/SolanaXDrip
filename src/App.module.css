@@ -4,99 +4,143 @@
     --text-light: #e0e0e0;
     --primary-color: #bb86fc;
     --secondary-color: #cf6679;
-  }
-  
-  body {
+}
+
+body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     margin: 0;
     padding: 0;
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
-  }
-  
-  .appContainer {
+}
+
+.appContainer {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-  }
-  
-  .appHeader {
+    box-sizing: border-box;
+}
+
+.appHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #333;
-  }
-  
-  .logo {
+}
+
+.logo {
     width: 300px;
     height: 100px;
-  }
-  
-  .walletButtons {
+    object-fit: contain;
+}
+
+.walletButtons {
     display: flex;
     gap: 1rem;
-  }
-  
-  .appMain {
+}
+
+.appMain {
     background: linear-gradient(145deg, #1e1e1e, #2d2d2d);
     border-radius: 10px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  }
-  
-  .welcomeMessage {
+}
+
+.welcomeMessage {
     font-size: 1.2rem;
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 2rem;
-  }
-  
-  /* Override some wallet adapter button styles */
-  :global(.wallet-adapter-button) {
+}
+
+/* Override some wallet adapter button styles */
+:global(.wallet-adapter-button) {
     height: auto;
     padding: 0.6rem 1rem;
     border-radius: 6px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-  }
-  
-  :global(.wallet-adapter-button-trigger) {
+}
+
+:global(.wallet-adapter-button-trigger) {
     background-color: var(--primary-color);
     color: #000;
-  }
-  
-  :global(.wallet-adapter-button-trigger:hover) {
+}
+
+:global(.wallet-adapter-button-trigger:hover) {
     background-color: #9965e5;
-  }
-  
-  :global(.wallet-adapter-button-disconnect) {
+}
+
+:global(.wallet-adapter-button-disconnect) {
     background-color: var(--secondary-color);
     color: #000;
-  }
-  
-  :global(.wallet-adapter-button-disconnect:hover) {
+}
+
+:global(.wallet-adapter-button-disconnect:hover) {
     background-color: #b4505f;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .appContainer {
+        padding: 1.5rem;
+    }
+
     .appHeader {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
-  
+
     .logo {
-      margin-bottom: 1rem;
+        width: 80%;
+        max-width: 250px;
+        height: auto;
     }
-  
+
     .walletButtons {
-      flex-direction: column;
-      width: 100%;
+        flex-direction: column;
+        width: 100%;
     }
-  
+
     :global(.wallet-adapter-button) {
-      width: 100%;
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
-  }
+
+    .appMain {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .appContainer {
+        padding: 1rem;
+    }
+
+    .appHeader {
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .logo {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .appMain {
+        padding: 1rem;
+    }
+
+    .welcomeMessage {
+        font-size: 1rem;
+    }
+
+    :global(.wallet-adapter-button) {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}

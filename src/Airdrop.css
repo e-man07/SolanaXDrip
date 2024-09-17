@@ -1,45 +1,49 @@
+/* General Container Styles */
 .airdrop-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
     position: relative;
+    box-sizing: border-box;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .airdrop-container.dark {
     background-color: #1a1a1a;
     color: #ffffff;
     border: 1px solid #444;
-    border-radius: 12px;
 }
 
 .airdrop-container.light {
     background-color: #ffffff;
     color: #000000;
     border: 1px solid #ccc;
-    border-radius: 12px;
 }
 
+/* Title Styling */
 .title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: bold;
-    color: inherit;
 }
 
+/* Theme Toggle Button */
 .theme-toggle {
     position: absolute;
     top: 15px;
     right: 15px;
     padding: 10px 15px;
-    background-color: #4CAF50; /* Green color to match both themes */
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     font-size: 16px;
+    z-index: 10;
 }
 
 .theme-toggle:hover {
@@ -52,6 +56,7 @@
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
 }
 
+/* Wallet Connected Section */
 .wallet-connected {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -59,6 +64,7 @@
     margin-top: 20px;
 }
 
+/* Wallet Address */
 .wallet-address {
     font-weight: bold;
     word-break: break-all;
@@ -70,18 +76,21 @@
     color: teal;
 }
 
+/* Airdrop Form */
 .airdrop-form {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 15px;
 }
 
 .amount-input {
-    flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .amount-input:focus {
@@ -90,13 +99,15 @@
 }
 
 .airdrop-button {
-    padding: 10px 15px;
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .airdrop-button:hover {
@@ -108,6 +119,7 @@
     cursor: not-allowed;
 }
 
+/* Cooldown Timer */
 .cooldown-timer {
     text-align: center;
     font-style: italic;
@@ -120,13 +132,76 @@
     border: 1px solid rgba(255, 85, 85, 0.3);
 }
 
+/* Connect Prompt */
 .connect-prompt {
     text-align: center;
     font-style: italic;
 }
 
+/* Loading State */
 .loading {
     text-align: center;
     font-size: 18px;
     margin-top: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .airdrop-container {
+        padding: 15px;
+        margin: 0 15px;
+    }
+
+    .title {
+        font-size: 20px;
+        padding-top: 30px; /* Add space for the theme toggle */
+    }
+
+    .theme-toggle {
+        padding: 8px 12px;
+        font-size: 14px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .airdrop-form {
+        flex-direction: column;
+    }
+
+    .amount-input,
+    .airdrop-button {
+        font-size: 14px;
+    }
+
+    .cooldown-timer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .airdrop-container {
+        padding: 10px;
+        margin: 0 10px;
+    }
+
+    .theme-toggle {
+        font-size: 12px;
+        padding: 6px 10px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .title {
+        font-size: 18px;
+        padding-top: 35px; /* Increase space for the theme toggle */
+    }
+
+    .airdrop-button,
+    .amount-input {
+        font-size: 12px;
+    }
+
+    .wallet-connected {
+        padding: 15px;
+    }
 }
